@@ -1,0 +1,21 @@
+goto /
+cd /
+clear
+reset
+commadns
+help
+reload
+helkp
+search wallper
+search w
+find
+find wallpaper
+`
+refresh
+open_with 
+open_with unzip
+open_with ftp
+delete
+open_with sq
+
+bulkrename

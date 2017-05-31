@@ -1,0 +1,176 @@
+#Mouse movement
+floating_modifier $mod
+
+#oneko
+exec oneko -tofocus
+
+#Background
+exec_always feh --bg-scale /home/daft/Pictures/wall-i3.png
+
+set $mod Mod4
+#exec --no-startup-id nm-applet
+
+
+#Light
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+
+#IRSSI
+bindsym $mod+Ctrl+i exec termite -e irssi -t IRSSI
+
+#Firefox
+bindsym $mod+Ctrl+f exec firefox-beta
+
+#Ranger
+bindsym $mod+Ctrl+r exec termite -e ranger -t Ranger
+
+#Wirshark
+bindsym $mod+Ctrl+w exec wireshark-gtk
+
+#Steam
+bindsym $mod+Ctrl+s exec steam-runtime
+
+#Discord
+bindsym $mod+Ctrl+d exec discord
+
+#Qutebrowser
+bindsym $mod+Ctrl+q exec qutebrowser
+
+#Chromium
+bindsym $mod+Ctrl+c exec google-chrome-stable 
+
+#Thunderbird
+bindsym $mod+Ctrl+t exec thunderbird
+
+#Modmap
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+
+font pango:Unifont 10
+
+
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+#Dmenu
+bindsym $mod+d exec rofi -disable-history -show run -config ~/.config/rofi/rofi.cfg 
+
+#Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+#compton
+exec /usr/bin/compton --config ~/.config/.compton.conf
+#Move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Pulse Audio controls
+exec volnoti
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master on; amixer set Master 2%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+ bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master on; amixer set Master 2%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+ bindsym XF86AudioMute exec --no-startup-id "amixer set Master off; amixer set Master 0%; volnoti-show -m"
+
+set $ws1 "1"
+set $ws2 "2"
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+#gaps
+gaps inner 30
+gaps outer 5
+bindsym $mod+m exec i3 gaps inner all plus 5
+bindsym $mod+Shift+m exec i3 gaps inner all minus 5
+bindsym $mod+n exec i3 gaps outer all plus 5
+bindsym $mod+Shift+n exec i3 gaps outer all minus 5
+bindsym $mod+Shift+Ctrl+m exec i3 gaps inner all set 30
+bindsym $mod+Shift+Ctrl+n exec i3 gaps outer all set 5
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Ctrl+s exec shutdown now
+bindsym $mod+Shift+Ctrl+e exec i3 exit
+
+
+
+for_window [class="^.*"] border pixel 0
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+#Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #7467a3 #554b7c #ffffff #423772   #7467a3
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+#Resize
+bindsym $mod+Ctrl+l resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+k resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+j resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+h resize shrink width 5 px or 5 ppt
+  
+
+

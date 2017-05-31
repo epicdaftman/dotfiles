@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/etc/xdg/termite'
+let g:netrw_dirhist_2='/home/daft/.config/polybar'
+let g:netrw_dirhist_3='/home/daft/Games/bin'
+let g:netrw_dirhist_4='/usr/lib/sysusers.d'
+let g:netrw_dirhist_5='/usr'
+let g:netrw_dirhist_6='/home/daft/.oh-my-zsh/themes'
