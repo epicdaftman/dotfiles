@@ -1,11 +1,8 @@
 #Mouse movement
 floating_modifier $mod
 
-#oneko
-exec oneko -tofocus
-
 #Background
-exec_always feh --bg-scale /home/daft/Pictures/wall-i3.png
+exec_always feh --bg-scale ~/.wallpaper 
 
 set $mod Mod4
 #exec --no-startup-id nm-applet
